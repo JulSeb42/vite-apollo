@@ -3,9 +3,9 @@
 import "dotenv/config"
 
 export const MONGODB_URI =
-    process.env.MONGODB_URI || "mongodb://localhost/base-apollo-jwt"
+    process.env.MONGODB_URI || "mongodb://localhost/vite-apollo"
 
-export const PORT: number = parseInt(process.env.PORT || "5005")
+export const PORT: number = parseInt(process.env.PORT || "5005")
 
 export const API_PORT = process.env.API_PORT || 4000
 

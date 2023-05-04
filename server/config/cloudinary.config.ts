@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: {
         // @ts-expect-error
-        folder: "tsx-apollo",
+        folder: "vite-apollo",
     },
 })
 

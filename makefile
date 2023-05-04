@@ -18,14 +18,14 @@ define COMPONENT_FILE
 
 import { } from "tsx-library-julseb"
 
-import * as Styles from "components/$(name)/styles"
+import { Styled$(name) } from "components/$(name)/styles"
 import type { $(name)Props } from "components/$(name)/types"
 
-export const $(name) = ({ as, ...rest }: $(name)Props) => {
+export const $(name) = ({  }: $(name)Props) => {
 	return (
-		<Styles.Styled$(name) as={as} {...rest}>
+		<Styled$(name)>
 
-		</Styles.Styled$(name)>
+		</Styled$(name)>
 	)
 }
 endef
@@ -36,7 +36,7 @@ define STYLES_FILE
 import styled from "styled-components/macro"
 import { } from "tsx-library-julseb"
 
-export const Styled$(name) = styled.div<{ }>`
+export const Styled$(name) = styled.div`
 	
 `
 endef
@@ -44,10 +44,8 @@ endef
 define TYPES_FILE
 /*=============================================== $(name) types ===============================================*/
 
-import type { HTMLAttributes, ElementType } from "react"
-
-export interface $(name)Props extends HTMLAttributes<HTMLElement> {
-    as?: ElementType
+export interface $(name)Props {
+	
 }
 endef
 
