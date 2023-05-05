@@ -16,7 +16,7 @@ Run `npm run dev` at the root of the project. Once again, thanks to Concurrently
 
 ### Backend
 
--   [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+-   [@apollo/server](https://www.apollographql.com/docs/apollo-server/)
 -   [GraphQL](https://graphql.org/)
 -   [JSON web token](https://jwt.io/)
 -   [Bcrypt js](https://www.npmjs.com/package/bcryptjs)
@@ -29,7 +29,7 @@ Run `npm run dev` at the root of the project. Once again, thanks to Concurrently
 
 -   [React](https://reactjs.org/)
 -   [React router dom](https://reactrouter.com/en/v6.3.0/getting-started/overview)
--   [Apollo client](https://www.apollographql.com/docs/react/)
+-   [@apollo/client](https://www.apollographql.com/docs/react/)
 -   [GraphQL](https://graphql.org/)
 -   [Styled components](https://styled-components.com/)
 -   [TSX library](https://documentation-components-react.vercel.app/): own package, with basic React UI components
