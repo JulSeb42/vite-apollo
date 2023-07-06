@@ -2,7 +2,7 @@
 
 import { useContext } from "react"
 import { gql, useQuery } from "@apollo/client"
-import { Text } from "tsx-library-julseb"
+import { Flexbox, Skeleton, SkeletonCard, Text } from "tsx-library-julseb"
 import { Link } from "react-router-dom"
 
 import { AuthContext } from "context"
@@ -10,7 +10,6 @@ import type { AuthContextType } from "context/types"
 
 import { Page } from "components"
 import { EditAccountForm } from "pages/account/EditAccount/EditAccountForm"
-import { EditAccountSkeleton } from "pages/account/EditAccount/EditAccountSkeleton"
 import { DeleteUser } from "pages/account/EditAccount/DeleteUser"
 
 export const EditAccount = () => {
@@ -38,6 +37,42 @@ export const EditAccount = () => {
 
             <DeleteUser _id={user?._id || ""} />
         </Page>
+    )
+}
+
+const EditAccountSkeleton = () => {
+    return (
+        <Flexbox flexDirection="column" gap="m">
+            <SkeletonCard gap="xxs" flexDirection="column">
+                <Text>Full name</Text>
+                <Skeleton
+                    width="100%"
+                    height={32}
+                    borderRadius="s"
+                    animation="shine"
+                />
+            </SkeletonCard>
+
+            <SkeletonCard gap="xxs" flexDirection="column">
+                <Text>Email</Text>
+                <Skeleton
+                    width="100%"
+                    height={32}
+                    borderRadius="s"
+                    animation="shine"
+                />
+            </SkeletonCard>
+
+            <SkeletonCard gap="xxs" flexDirection="column">
+                <Text>Avatar</Text>
+                <Skeleton
+                    width={64}
+                    height={64}
+                    borderRadius="m"
+                    animation="shine"
+                />
+            </SkeletonCard>
+        </Flexbox>
     )
 }
 

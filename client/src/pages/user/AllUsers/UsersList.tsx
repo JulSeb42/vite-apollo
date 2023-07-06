@@ -19,31 +19,7 @@ export const UsersList = () => {
     const { data, loading, error } = useQuery(ALL_USERS)
     const allUsers: UserType[] = data?.users
 
-    if (loading)
-        return (
-            <Grid col={3} gap="s">
-                {generateNumbers(0, 4)?.map(n => (
-                    <SkeletonCard
-                        borderRadius="m"
-                        border={{ width: 1 }}
-                        flexDirection="column"
-                        gap="xs"
-                        alignItems="center"
-                        justifyContent="center"
-                        padding="s"
-                        key={n}
-                    >
-                        <Skeleton
-                            width={32}
-                            height={32}
-                            borderRadius="circle"
-                        />
-                        <Skeleton width="70%" height={24} borderRadius="s" />
-                        <SkeletonShine />
-                    </SkeletonCard>
-                ))}
-            </Grid>
-        )
+    if (loading) return <UsersListSkeleton />
 
     if (error) return <Text>Error while loading users: {error?.message}</Text>
 
@@ -53,6 +29,29 @@ export const UsersList = () => {
         <Grid col={3} gap="s">
             {allUsers.map(user => (
                 <UserCard user={user} key={uuid()} />
+            ))}
+        </Grid>
+    )
+}
+
+const UsersListSkeleton = () => {
+    return (
+        <Grid col={3} gap="s">
+            {generateNumbers(0, 4)?.map(n => (
+                <SkeletonCard
+                    borderRadius="m"
+                    border={{ width: 1 }}
+                    flexDirection="column"
+                    gap="xs"
+                    alignItems="center"
+                    justifyContent="center"
+                    padding="s"
+                    key={n}
+                >
+                    <Skeleton width={32} height={32} borderRadius="circle" />
+                    <Skeleton width="70%" height={24} borderRadius="s" />
+                    <SkeletonShine />
+                </SkeletonCard>
             ))}
         </Grid>
     )

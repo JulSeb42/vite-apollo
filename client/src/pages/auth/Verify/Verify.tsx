@@ -34,8 +34,6 @@ export const Verify = () => {
 
     const [verifyUser, { loading }] = useMutation(VERIFY_USER)
 
-    console.log(user)
-
     useEffect(() => {
         const verifyFn = () => {
             if (isLoggedIn && user?._id === id && user?.verifyToken === token) {
