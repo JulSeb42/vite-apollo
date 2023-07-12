@@ -1,6 +1,6 @@
 /*=============================================== UserCard styles ===============================================*/
 
-import styled from "styled-components/macro"
+import styled from "styled-components"
 import { Card, Mixins, Transitions } from "tsx-library-julseb"
 
 export const StyledUserCard = styled(Card)`

@@ -4,28 +4,28 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-        "@apollo/server": "^4.7.1",
+        "@apollo/server": "^4.7.5",
         "bcryptjs": "^2.4.3",
-        "cloudinary": "^1.36.4",
-        "concurrently": "^8.0.1",
-        "dotenv": "^16.0.3",
-        "graphql": "^16.6.0",
-        "jsonwebtoken": "^9.0.0",
-        "mongoose": "^7.1.0",
+        "cloudinary": "^1.37.3",
+        "concurrently": "^8.2.0",
+        "dotenv": "^16.3.1",
+        "graphql": "^16.7.1",
+        "jsonwebtoken": "^9.0.1",
+        "mongoose": "^7.3.3",
         "multer": "^1.4.5-lts.1",
         "multer-storage-cloudinary": "^4.0.0",
-        "nodemailer": "^6.9.1",
-        "ts-utils-julseb": "^2.2.15"
+        "nodemailer": "^6.9.3",
+        "ts-utils-julseb": "^2.2.16"
     },
     "devDependencies": {
         "@types/bcryptjs": "^2.4.2",
         "@types/cors": "^2.8.13",
         "@types/jsonwebtoken": "^9.0.2",
         "@types/multer": "^1.4.7",
-        "@types/node": "^20.1.1",
-        "@types/nodemailer": "^6.4.7",
+        "@types/node": "^20.4.1",
+        "@types/nodemailer": "^6.4.8",
         "ts-node-dev": "^2.0.0",
-        "typescript": "^5.0.4"
+        "typescript": "^5.1.6"
     },
     "scripts": {
         "install": "cd client && yarn",
