@@ -37,7 +37,7 @@ export const EditAccount = () => {
                 <Link to={PATHS.EDIT_PASSWORD}>Edit your password.</Link>
             </Text>
 
-            <DeleteUser _id={user?._id || ""} />
+            <DeleteUser _id={user?._id!} />
         </Page>
     )
 }

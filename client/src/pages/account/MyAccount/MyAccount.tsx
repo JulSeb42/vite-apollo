@@ -16,7 +16,7 @@ export const MyAccount = () => {
 
     return (
         <Page title="My account">
-            <UserHeader _id={user?._id || ""} />
+            <UserHeader _id={user?._id!} />
 
             {!user?.verified && <Text>Your account is not verified.</Text>}
 

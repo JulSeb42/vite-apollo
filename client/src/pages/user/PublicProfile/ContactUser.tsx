@@ -33,7 +33,7 @@ export const ContactUser = ({ _id }: ContactUserProps) => {
 
     return (
         <Text>
-            Contact {getFirstName(user?.fullName || "")}:{" "}
+            Contact {getFirstName(user?.fullName)}:{" "}
             <a href={`mailto:${user?.email}`}>{user?.email}</a>
         </Text>
     )

@@ -88,7 +88,7 @@ export const EditAccountForm = ({ user }: EditAccountFormProps) => {
                 <ImageUploader
                     id="avatar"
                     label="Avatar"
-                    img={avatar || ""}
+                    img={avatar}
                     setImageUrl={setAvatar}
                     setIsLoading={setIsLoading}
                 />

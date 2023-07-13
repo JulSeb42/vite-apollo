@@ -21,8 +21,8 @@ export const PublicProfile = () => {
 
     return (
         <Page title={loading ? "User" : error ? "Error" : user?.fullName}>
-            <UserHeader _id={id || ""} />
-            <ContactUser _id={id || ""} />
+            <UserHeader _id={id!} />
+            <ContactUser _id={id!} />
         </Page>
     )
 }
