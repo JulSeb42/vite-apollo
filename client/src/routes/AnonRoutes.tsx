@@ -7,9 +7,11 @@ import { PageLoading } from "tsx-library-julseb"
 import { AuthContext } from "context"
 import type { AuthContextType } from "context/types"
 
+import { PATHS } from "data"
+
 export const AnonRoutes = ({
     children,
-    redirectTo = "/my-account",
+    redirectTo = PATHS.MY_ACCOUNT,
 }: AnonRoutesProps) => {
     const { isLoading, isLoggedIn } = useContext(AuthContext) as AuthContextType
 

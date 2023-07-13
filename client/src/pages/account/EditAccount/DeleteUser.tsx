@@ -11,6 +11,8 @@ import { DangerZone, Error } from "components"
 
 import type { ErrorType } from "types"
 
+import { PATHS } from "data"
+
 export const DeleteUser = ({ _id }: DeleteUserProps) => {
     const navigate = useNavigate()
 
@@ -29,7 +31,7 @@ export const DeleteUser = ({ _id }: DeleteUserProps) => {
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
         }).then(() => {
             logoutUser()
-            navigate("/goodbye")
+            navigate(PATHS.GOODBYE)
         })
     }
 

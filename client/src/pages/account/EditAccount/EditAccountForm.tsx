@@ -10,6 +10,8 @@ import type { AuthContextType } from "context/types"
 
 import { ImageUploader, Error } from "components"
 
+import { PATHS } from "data"
+
 import type { ErrorType, UserType } from "types"
 
 export const EditAccountForm = ({ user }: EditAccountFormProps) => {
@@ -53,7 +55,7 @@ export const EditAccountForm = ({ user }: EditAccountFormProps) => {
                 const user = res.data.editUser
                 setToken(user.token)
                 setUser(user)
-                navigate("/my-account")
+                navigate(PATHS.MY_ACCOUNT)
             })
         }
     }
@@ -62,7 +64,7 @@ export const EditAccountForm = ({ user }: EditAccountFormProps) => {
         <>
             <Form
                 buttonPrimary="Edit your account"
-                buttonSecondary={{ text: "Cancel", to: "/my-account" }}
+                buttonSecondary={{ text: "Cancel", to: PATHS.MY_ACCOUNT }}
                 onSubmit={handleSubmit}
                 isLoading={loading || isApiLoading || isLoading || !user?._id}
             >

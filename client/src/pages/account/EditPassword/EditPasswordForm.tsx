@@ -12,7 +12,7 @@ import type { AuthContextType } from "context/types"
 
 import { Error } from "components"
 
-import { commonTexts } from "data"
+import { COMMON_TEXTS, PATHS } from "data"
 
 import type { ErrorType } from "types"
 
@@ -63,7 +63,7 @@ export const EditPasswordForm = () => {
             const user = res.data.editPassword
             setToken(user.token)
             setUser(user)
-            navigate("/my-account")
+            navigate(PATHS.MY_ACCOUNT)
         })
     }
 
@@ -71,7 +71,7 @@ export const EditPasswordForm = () => {
         <>
             <Form
                 buttonPrimary="Save your password"
-                buttonSecondary={{ text: "Cancel", to: "/my-account/edit" }}
+                buttonSecondary={{ text: "Cancel", to: PATHS.EDIT_ACCOUNT }}
                 onSubmit={handleSubmit}
                 isLoading={loading}
             >
@@ -93,11 +93,11 @@ export const EditPasswordForm = () => {
                     helperBottom={{
                         text:
                             validation === "not-passed"
-                                ? commonTexts.passwordNotPassed
+                                ? COMMON_TEXTS.PASSWORD_NOT_PASSED
                                 : "",
                         icon:
                             validation === "not-passed"
-                                ? commonTexts.iconPasswordNotPassed
+                                ? COMMON_TEXTS.ICON_PASSWORD_NOT_PASSED
                                 : undefined,
                         iconColor: "danger",
                     }}

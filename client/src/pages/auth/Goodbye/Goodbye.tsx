@@ -5,6 +5,8 @@ import { Text } from "tsx-library-julseb"
 
 import { Page } from "components"
 
+import { PATHS } from "data"
+
 export const Goodbye = () => {
     return (
         <Page title="Goodbye!">
@@ -13,7 +15,7 @@ export const Goodbye = () => {
             <Text>Your account was deleted successfully.</Text>
 
             <Text>
-                <Link to="/signup">Go to signup page.</Link>
+                <Link to={PATHS.SIGNUP}>Go to signup page.</Link>
             </Text>
         </Page>
     )

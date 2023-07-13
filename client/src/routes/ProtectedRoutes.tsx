@@ -7,9 +7,11 @@ import { PageLoading } from "tsx-library-julseb"
 import { AuthContext } from "context"
 import type { AuthContextType } from "context/types"
 
+import { PATHS } from "data"
+
 export const ProtectedRoutes = ({
     children,
-    redirectTo = "/login",
+    redirectTo = PATHS.LOGIN,
 }: ProtectedRoutesProps) => {
     const { isLoading, isLoggedIn } = useContext(AuthContext) as AuthContextType
 

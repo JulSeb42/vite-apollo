@@ -19,7 +19,7 @@ import type { AuthContextType } from "context/types"
 
 import { Error } from "components"
 
-import { commonTexts } from "data"
+import { COMMON_TEXTS, PATHS } from "data"
 
 import type { ErrorType } from "types"
 
@@ -73,7 +73,7 @@ export const SignupForm = () => {
                 if (!res.errors) {
                     loginUser(res.data.signup)
                     scrollToTop()
-                    navigate("/thank-you")
+                    navigate(PATHS.THANK_YOU)
                 }
             })
             .catch(err => console.log(err))
@@ -108,12 +108,12 @@ export const SignupForm = () => {
                     helperBottom={{
                         text:
                             validationPassword === "not-passed"
-                                ? commonTexts.passwordNotPassed
+                                ? COMMON_TEXTS.PASSWORD_NOT_PASSED
                                 : "",
                         icon:
                             validationPassword === "not-passed"
-                                ? commonTexts.iconPasswordNotPassed
-                                : "",
+                                ? COMMON_TEXTS.ICON_PASSWORD_NOT_PASSED
+                                : undefined,
                         iconColor: "danger",
                     }}
                 />

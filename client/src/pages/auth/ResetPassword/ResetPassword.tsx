@@ -19,7 +19,7 @@ import { Page, Error } from "components"
 
 import type { ErrorType } from "types"
 
-import { siteData, commonTexts } from "data"
+import { SITE_DATA, COMMON_TEXTS, PATHS } from "data"
 
 export const ResetPassword = () => {
     const navigate = useNavigate()
@@ -58,7 +58,7 @@ export const ResetPassword = () => {
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
         }).then(res => {
             if (!res.errors) {
-                navigate("/login")
+                navigate(PATHS.LOGIN)
                 scrollToTop()
             }
         })
@@ -66,7 +66,7 @@ export const ResetPassword = () => {
 
     return (
         <Page title="Reset password" mainWidth="form">
-            <Text tag="h1">{siteData.name}</Text>
+            <Text tag="h1">{SITE_DATA.NAME}</Text>
 
             <Text tag="h2">Reset your password</Text>
 
@@ -81,11 +81,11 @@ export const ResetPassword = () => {
                     helperBottom={{
                         text:
                             validation === "not-passed"
-                                ? commonTexts.passwordNotPassed
+                                ? COMMON_TEXTS.PASSWORD_NOT_PASSED
                                 : "",
                         icon:
                             validation === "not-passed"
-                                ? commonTexts.iconPasswordNotPassed
+                                ? COMMON_TEXTS.ICON_PASSWORD_NOT_PASSED
                                 : undefined,
                         iconColor: "danger",
                     }}
@@ -94,7 +94,7 @@ export const ResetPassword = () => {
 
                 <Flexbox gap="xs">
                     <Button type="submit">Reset your password</Button>
-                    <Button to="/login" variant="transparent">
+                    <Button to={PATHS.LOGIN} variant="transparent">
                         Cancel
                     </Button>
                 </Flexbox>

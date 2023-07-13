@@ -9,6 +9,8 @@ import type { AuthContextType } from "context/types"
 
 import { Page, UserHeader } from "components"
 
+import { PATHS } from "data"
+
 export const MyAccount = () => {
     const { user } = useContext(AuthContext) as AuthContextType
 
@@ -19,7 +21,7 @@ export const MyAccount = () => {
             {!user?.verified && <Text>Your account is not verified.</Text>}
 
             <Text>
-                <Link to="/my-account/edit">Edit your account.</Link>
+                <Link to={PATHS.EDIT_ACCOUNT}>Edit your account.</Link>
             </Text>
         </Page>
     )

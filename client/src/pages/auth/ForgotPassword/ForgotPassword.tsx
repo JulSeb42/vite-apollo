@@ -15,7 +15,7 @@ import {
 
 import { Page, Error } from "components"
 
-import { siteData } from "data"
+import { SITE_DATA, PATHS } from "data"
 
 import type { ErrorType } from "types"
 
@@ -43,7 +43,7 @@ export const ForgotPassword = () => {
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
         }).then(res => {
             if (!res.errors) {
-                navigate("/login/forgot-password/email-sent")
+                navigate(PATHS.FORGOT_PASSWORD_SENT)
                 scrollToTop()
             }
         })
@@ -51,7 +51,7 @@ export const ForgotPassword = () => {
 
     return (
         <Page title="I forgot my password" mainWidth="form">
-            <Text tag="h1">{siteData.name}</Text>
+            <Text tag="h1">{SITE_DATA.NAME}</Text>
 
             <Text tag="h2">I forgot my password</Text>
 
@@ -72,7 +72,7 @@ export const ForgotPassword = () => {
 
                 <Flexbox gap="xs">
                     <Button type="submit">Send</Button>
-                    <Button to="/login" variant="transparent">
+                    <Button to={PATHS.LOGIN} variant="transparent">
                         Cancel
                     </Button>
                 </Flexbox>

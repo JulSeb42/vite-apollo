@@ -1,16 +1,16 @@
 /*=============================================== Site data ===============================================*/
 
-export const siteData = {
-    name: "Apollo React app",
-    favicon: "/vite.svg",
-    email: "",
-    author: "",
-    year: "",
+export const SITE_DATA = {
+    NAME: "Apollo React app",
+    FAVICON: "/vite.svg",
+    EMAIL: "",
+    AUTHOR: "",
+    YEAR: "",
 
     // Meta
-    description: "",
-    cover: "",
-    type: "",
-    language: "en_EN",
-    keywords: [],
+    DESCRIPTION: "",
+    COVER: "",
+    TYPE: "",
+    LANGUAGE: "en_EN",
+    KEYWORDS: [],
 }

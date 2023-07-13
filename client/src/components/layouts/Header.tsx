@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom"
 import { AuthContext } from "context"
 import type { AuthContextType } from "context/types"
 
-import { siteData } from "data"
+import { SITE_DATA, PATHS } from "data"
 
 import type { NavItemType } from "types"
 
@@ -28,19 +28,19 @@ export const Header = () => {
     const baseLinks: NavItemType[] = [
         {
             text: "Home",
-            to: "/",
+            to: PATHS.ROOT,
             end: true,
         },
         {
             text: "Users",
-            to: "/users",
+            to: PATHS.USERS,
         },
     ]
 
     const protectedLinks: NavItemType[] = [
         {
             text: "My account",
-            to: "/my-account",
+            to: PATHS.MY_ACCOUNT,
         },
         {
             text: "Logout",
@@ -51,11 +51,11 @@ export const Header = () => {
     const anonLinks: NavItemType[] = [
         {
             text: "Sign up",
-            to: "/signup",
+            to: PATHS.SIGNUP,
         },
         {
             text: "Login",
-            to: "/login",
+            to: PATHS.LOGIN,
         },
     ]
 
@@ -73,7 +73,7 @@ export const Header = () => {
         )
 
     return (
-        <Container logo={{ text: siteData.name, to: "/" }}>
+        <Container logo={{ text: SITE_DATA.NAME, to: PATHS.ROOT }}>
             {navLinks(baseLinks)}
 
             {isLoggedIn ? navLinks(protectedLinks) : navLinks(anonLinks)}

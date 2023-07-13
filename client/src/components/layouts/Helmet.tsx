@@ -2,7 +2,7 @@
 
 import { Helmet as Container } from "tsx-library-julseb"
 
-import { siteData } from "data"
+import { SITE_DATA } from "data"
 
 export const Helmet = ({
     title,
@@ -12,15 +12,15 @@ export const Helmet = ({
 }: HelmetProps) => {
     return (
         <Container
-            title={`${title} | ${siteData.name}`}
+            title={`${title} | ${SITE_DATA.NAME}`}
             description={description}
-            keywords={[...siteData.keywords, keywords]}
-            favicon={siteData.favicon}
-            author={siteData.author}
-            type={siteData.type}
-            cover={cover || siteData.cover}
-            siteName={siteData.name}
-            language={siteData.language}
+            keywords={[...SITE_DATA.KEYWORDS, keywords]}
+            favicon={SITE_DATA.FAVICON}
+            author={SITE_DATA.AUTHOR}
+            type={SITE_DATA.TYPE}
+            cover={cover || SITE_DATA.COVER}
+            siteName={SITE_DATA.NAME}
+            language={SITE_DATA.LANGUAGE}
         />
     )
 }

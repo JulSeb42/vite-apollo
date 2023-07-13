@@ -12,6 +12,8 @@ import { Page } from "components"
 import { EditAccountForm } from "pages/account/EditAccount/EditAccountForm"
 import { DeleteUser } from "pages/account/EditAccount/DeleteUser"
 
+import { PATHS } from "data"
+
 export const EditAccount = () => {
     const { user } = useContext(AuthContext) as AuthContextType
 
@@ -32,7 +34,7 @@ export const EditAccount = () => {
             )}
 
             <Text>
-                <Link to="/my-account/edit-password">Edit your password.</Link>
+                <Link to={PATHS.EDIT_PASSWORD}>Edit your password.</Link>
             </Text>
 
             <DeleteUser _id={user?._id || ""} />

@@ -1,7 +1,7 @@
 /*=============================================== Common texts ===============================================*/
 
-export const commonTexts = {
-    passwordNotPassed:
+export const COMMON_TEXTS = {
+    PASSWORD_NOT_PASSED:
         "Password must be at least 6 characters long and must contain at least one number, one lowercase and one uppercase letter.",
-    iconPasswordNotPassed: "close-circle",
+    ICON_PASSWORD_NOT_PASSED: "close-circle",
 }

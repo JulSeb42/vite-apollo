@@ -5,6 +5,8 @@ import { Text } from "tsx-library-julseb"
 
 import { Page } from "components"
 
+import { PATHS } from "data"
+
 export const VerificationSuccess = () => {
     return (
         <Page title="Verify your account">
@@ -12,7 +14,7 @@ export const VerificationSuccess = () => {
 
             <Text>
                 You can now access all the functionalities on our website.{" "}
-                <Link to="/my-account">Go to your account</Link>.
+                <Link to={PATHS.MY_ACCOUNT}>Go to your account</Link>.
             </Text>
         </Page>
     )
