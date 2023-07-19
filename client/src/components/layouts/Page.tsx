@@ -1,5 +1,7 @@
 /*=============================================== Page ===============================================*/
 
+import type { ReactNode } from "react"
+
 import { Wrapper, Main } from "tsx-library-julseb"
 
 import { Helmet } from "components/layouts/Helmet"
@@ -44,6 +46,6 @@ interface PageProps {
     keywords?: string | string[]
     cover?: string
     template?: "1col" | "2cols" | "3cols"
-    children?: any
+    children?: ReactNode | ReactNode[]
     mainWidth?: "default" | "large" | "form" | number
 }

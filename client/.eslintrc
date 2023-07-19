@@ -1,8 +1,0 @@
-{
-    "rules": {
-        "no-unused-expressions": "warn",
-        "@typescript-eslint/no-unused-expressions": "warn",
-        "@typescript-eslint/consistent-type-imports": "warn",
-        "@typescript-eslint/no-duplicate-imports": "warn"
-    }
-}

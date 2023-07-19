@@ -1,6 +1,7 @@
 /*=============================================== Auth context ===============================================*/
 
 import { useState, useEffect, createContext } from "react"
+import type { ReactNode } from "react"
 import { useQuery } from "@apollo/client"
 
 import { LOGGED_IN_USER } from "context"
@@ -71,5 +72,5 @@ export const AuthProviderWrapper = ({ children }: Props) => {
 }
 
 interface Props {
-    children?: any
+    children?: ReactNode | ReactNode[]
 }

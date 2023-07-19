@@ -1,6 +1,7 @@
 /*=============================================== ProtectedRoutes ===============================================*/
 
 import { useContext } from "react"
+import type { ReactNode } from "react"
 import { Navigate } from "react-router-dom"
 import { PageLoading } from "tsx-library-julseb"
 
@@ -25,6 +26,6 @@ export const ProtectedRoutes = ({
 }
 
 interface ProtectedRoutesProps {
-    children?: any
+    children?: ReactNode | ReactNode[]
     redirectTo?: string
 }

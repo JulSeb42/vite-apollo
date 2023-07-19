@@ -12,7 +12,7 @@ export const Helmet = ({
 }: HelmetProps) => {
     return (
         <Container
-            title={`${title} | ${SITE_DATA.NAME}`}
+            title={`${title} | ${SITE_DATA.NAME}`}
             description={description}
             keywords={[...SITE_DATA.KEYWORDS, keywords]}
             favicon={SITE_DATA.FAVICON}
