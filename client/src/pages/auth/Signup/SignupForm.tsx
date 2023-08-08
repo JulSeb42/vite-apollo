@@ -1,17 +1,9 @@
 /*=============================================== SignupForm ===============================================*/
 
-import { useContext, useState } from "react"
-import type { ChangeEvent, FormEvent } from "react"
+import { useContext, useState, type ChangeEvent, type FormEvent } from "react"
 import { useMutation, gql } from "@apollo/client"
 import { useNavigate } from "react-router-dom"
-import {
-    Input,
-    Form,
-    passwordRegex,
-    scrollToTop,
-    Flexbox,
-    Button,
-} from "tsx-library-julseb"
+import { Input, Form, passwordRegex, Flexbox, Button } from "tsx-library-julseb"
 import type { ValidationTypes } from "tsx-library-julseb/types"
 
 import { AuthContext } from "context"
@@ -66,17 +58,14 @@ export const SignupForm = () => {
             variables: {
                 signupInput: inputs,
             },
-
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-        })
-            .then(res => {
+            onCompleted: res => {
                 if (!res.errors) {
-                    loginUser(res.data.signup)
-                    scrollToTop()
+                    loginUser(res.signup)
                     navigate(PATHS.THANK_YOU)
                 }
-            })
-            .catch(err => console.log(err))
+            },
+        }).catch(err => console.log(err))
     }
 
     return (

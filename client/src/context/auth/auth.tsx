@@ -1,7 +1,6 @@
 /*=============================================== Auth context ===============================================*/
 
-import { useState, useEffect, createContext } from "react"
-import type { ReactNode } from "react"
+import { useState, useEffect, createContext, type ReactNode } from "react"
 import { useQuery } from "@apollo/client"
 
 import { LOGGED_IN_USER } from "context"

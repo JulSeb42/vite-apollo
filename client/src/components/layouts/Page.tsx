@@ -1,6 +1,7 @@
 /*=============================================== Page ===============================================*/
 
-import type { ReactNode } from "react"
+import { useEffect, type ReactNode } from "react"
+import { useLocation } from "react-router-dom"
 
 import { Wrapper, Main } from "tsx-library-julseb"
 
@@ -16,6 +17,16 @@ export const Page = ({
     children,
     mainWidth = "default",
 }: PageProps) => {
+    const { pathname, search } = useLocation()
+
+    useEffect(() => {
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant",
+        })
+    }, [pathname, search])
+
     return (
         <>
             <Helmet

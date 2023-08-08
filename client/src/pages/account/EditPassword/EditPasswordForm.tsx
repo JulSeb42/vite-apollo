@@ -59,11 +59,13 @@ export const EditPasswordForm = () => {
             },
 
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-        }).then(res => {
-            const user = res.data.editPassword
-            setToken(user.token)
-            setUser(user)
-            navigate(PATHS.MY_ACCOUNT)
+
+            onCompleted: res => {
+                const user = res.editPassword
+                setToken(user.token)
+                setUser(user)
+                navigate(PATHS.MY_ACCOUNT)
+            },
         })
     }
 
@@ -117,6 +119,7 @@ const EDIT_PASSWORD = gql`
             email
             password
             token
+            verified
         }
     }
 `

@@ -51,11 +51,13 @@ export const EditAccountForm = ({ user }: EditAccountFormProps) => {
                 },
 
                 onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-            }).then(res => {
-                const user = res.data.editUser
-                setToken(user.token)
-                setUser(user)
-                navigate(PATHS.MY_ACCOUNT)
+
+                onCompleted: res => {
+                    const user = res.editUser
+                    setToken(user.token)
+                    setUser(user)
+                    navigate(PATHS.MY_ACCOUNT)
+                },
             })
         }
     }
@@ -112,6 +114,7 @@ const EDIT_USER = gql`
             password
             token
             avatar
+            verified
         }
     }
 `

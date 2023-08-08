@@ -20,7 +20,7 @@ export const ImageUploader = ({
         const uploadData = new FormData()
         setIsLoading(true)
 
-        uploadData.append("imageUrl", e.target.files[0])
+        uploadData.append("imageUrl", e.target.files![0])
 
         cloudinaryService
             .uploadImage(uploadData)
@@ -30,7 +30,7 @@ export const ImageUploader = ({
             })
             .catch(err => console.log(err))
 
-        if (e.target.files[0]) {
+        if (e.target.files![0]) {
             // @ts-expect-error
             setImageUrl(e.target.files[0])
             const reader = new FileReader()
@@ -39,7 +39,7 @@ export const ImageUploader = ({
                 setImageUrl(reader.result)
             })
 
-            reader.readAsDataURL(e.target.files[0])
+            reader.readAsDataURL(e.target.files![0])
         }
     }
 

@@ -27,11 +27,11 @@ export const DeleteUser = ({ _id }: DeleteUserProps) => {
             variables: {
                 _id,
             },
-
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-        }).then(() => {
-            logoutUser()
-            navigate(PATHS.GOODBYE)
+            onCompleted: () => {
+                logoutUser()
+                navigate(PATHS.GOODBYE)
+            },
         })
     }
 

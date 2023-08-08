@@ -1,7 +1,6 @@
 /*=============================================== AnonRoutes ===============================================*/
 
-import { useContext } from "react"
-import type { ReactNode } from "react"
+import { useContext, type ReactNode } from "react"
 import { Navigate } from "react-router-dom"
 import { PageLoading } from "tsx-library-julseb"
 

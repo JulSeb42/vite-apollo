@@ -1,7 +1,6 @@
 /*=============================================== ResetPassword ===============================================*/
 
-import { useState } from "react"
-import type { ChangeEvent, FormEvent } from "react"
+import { useState, type ChangeEvent, type FormEvent } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useMutation, gql } from "@apollo/client"
 import {
@@ -9,7 +8,6 @@ import {
     Form,
     Input,
     passwordRegex,
-    scrollToTop,
     Flexbox,
     Button,
 } from "tsx-library-julseb"
@@ -54,13 +52,10 @@ export const ResetPassword = () => {
                     password,
                 },
             },
-
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-        }).then(res => {
-            if (!res.errors) {
-                navigate(PATHS.LOGIN)
-                scrollToTop()
-            }
+            onCompleted: res => {
+                if (!res.errors) navigate(PATHS.LOGIN)
+            },
         })
     }
 

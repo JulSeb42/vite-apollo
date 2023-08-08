@@ -1,10 +1,9 @@
 /*=============================================== LoginForm ===============================================*/
 
-import { useContext, useState } from "react"
-import type { ChangeEvent, FormEvent } from "react"
+import { useContext, useState, type ChangeEvent, type FormEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { useMutation, gql } from "@apollo/client"
-import { Form, Input, scrollToTop, Flexbox, Button } from "tsx-library-julseb"
+import { Form, Input, Flexbox, Button } from "tsx-library-julseb"
 
 import { AuthContext } from "context"
 import type { AuthContextType } from "context/types"
@@ -39,14 +38,13 @@ export const LoginForm = () => {
             variables: {
                 loginInput: inputs,
             },
-
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-        }).then(res => {
-            if (!res.errors) {
-                loginUser(res.data.login)
-                scrollToTop()
-                navigate(-1)
-            }
+            onCompleted: res => {
+                if (!res.errors) {
+                    loginUser(res.login)
+                    navigate(-1)
+                }
+            },
         })
     }
 

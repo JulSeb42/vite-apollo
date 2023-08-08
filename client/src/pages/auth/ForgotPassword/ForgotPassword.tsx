@@ -1,17 +1,9 @@
 /*=============================================== ForgotPassword ===============================================*/
 
-import { useState } from "react"
-import type { ChangeEvent, FormEvent } from "react"
+import { useState, type ChangeEvent, type FormEvent } from "react"
 import { useMutation, gql } from "@apollo/client"
 import { useNavigate } from "react-router-dom"
-import {
-    Text,
-    Form,
-    Input,
-    scrollToTop,
-    Flexbox,
-    Button,
-} from "tsx-library-julseb"
+import { Text, Form, Input, Flexbox, Button } from "tsx-library-julseb"
 
 import { Page, Error } from "components"
 
@@ -39,13 +31,10 @@ export const ForgotPassword = () => {
                     email,
                 },
             },
-
             onError: ({ graphQLErrors }) => setErrorMessages(graphQLErrors),
-        }).then(res => {
-            if (!res.errors) {
-                navigate(PATHS.FORGOT_PASSWORD_SENT)
-                scrollToTop()
-            }
+            onCompleted: res => {
+                if (!res.errors) navigate(PATHS.FORGOT_PASSWORD_SENT)
+            },
         })
     }
 

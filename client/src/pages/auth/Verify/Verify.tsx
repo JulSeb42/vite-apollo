@@ -35,7 +35,7 @@ export const Verify = () => {
     const [verifyUser, { loading }] = useMutation(VERIFY_USER)
 
     useEffect(() => {
-        const verifyFn = () => {
+        if (isLoading) {
             if (isLoggedIn && user?._id === id && user?.verifyToken === token) {
                 verifyUser({
                     variables: {
@@ -47,21 +47,28 @@ export const Verify = () => {
 
                     onError: ({ graphQLErrors }) =>
                         setErrorMessages(graphQLErrors),
-                }).then(res => {
-                    console.log(res)
-                    const user = res.data.verifyUser
-                    setToken(user.token)
-                    setUser(user)
-                    loginUser(user)
-                    setIsVerified(true)
+                    onCompleted: res => {
+                        const user = res.verifyUser
+                        setToken(user.token)
+                        setUser(user)
+                        loginUser(user)
+                        setIsLoading(false)
+                        setIsVerified(true)
+                    },
                 })
             }
-
-            setIsLoading(false)
         }
-
-        setTimeout(() => verifyFn(), 500)
-    }, [id, token, user?._id, user?.verifyToken])
+    }, [
+        id,
+        isLoading,
+        isLoggedIn,
+        loginUser,
+        setToken,
+        setUser,
+        token,
+        user,
+        verifyUser,
+    ])
 
     if (loading || isLoading || dataLoading) return <VerifySkeleton />
 
@@ -77,6 +84,7 @@ const VERIFY_USER = gql`
         verifyUser(verifyInput: $verifyInput) {
             _id
             token
+            verified
         }
     }
 `
